@@ -7,7 +7,7 @@ const mapConfig: google.maps.MapOptions = {
         lat: 22.288070000165405,
         lng: 73.36437942384639
     },
-    zoom: 18,
+    zoom: 19,
     mapId: "90f87356969d889c",
     heading: 10,
     tilt: 45
