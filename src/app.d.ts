@@ -6,7 +6,11 @@ declare global {
 		// interface Locals {}
 		// interface PageData {}
 		// interface Platform {}
+		interface Window {
+			initMap: () => void;
+		}
 	}
+	
 }
 
 export {};
