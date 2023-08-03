@@ -103,9 +103,9 @@
 			<span class="badge variant-filled">Dev </span>
 		</h1>
 	</svelte:fragment>
-	<svelte:fragment slot="trail">
+	<!-- <svelte:fragment slot="trail">
 		<InputChip class="h-18 w-60 items-center justify-center" bind:value={fuse_result} name="chips" placeholder="Enter any value..." />
-	</svelte:fragment>	
+	</svelte:fragment>	 -->
 </AppBar>
 
 <div class="flex flex-col h-full w-full items-center">
