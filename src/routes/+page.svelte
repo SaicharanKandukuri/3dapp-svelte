@@ -6,8 +6,10 @@
 	import { RangeSlider } from '@skeletonlabs/skeleton';
 	import fuse from 'fuse.js';
 
-	import { setCenter } from '$lib/helper';
+	import { setCenter, locateMe, theme } from '$lib/helper';
 	import data from '$lib/data.json';
+
+	import {initWebGLOverlay } from '$lib/webgl';
 
 	let api_loaded = false;
 	let map_view: HTMLElement;
@@ -81,6 +83,8 @@
 					map.addListener('heading_changed', () => {
 						heading_amount = map.getHeading()!;
 					});
+
+					// initWebGLOverlay(map);
 				} else {
 					console.warn('map_view is not defined | reload could fix');
 				}
@@ -110,10 +114,16 @@
 
 <div class="flex flex-col h-full w-full items-center">
 	<div class="p-2 m-2 mt-10 rounded-md border-dashed border-4" id="map" bind:this={map_view} />
+	
 	<div class="w-full m-3 p-10">
 		<div class="text-center">
 			<p class="h4">🛰️ LANG: {center.lat} LAT: {center.lng}</p>
 			<p class="h4">📐 {heading_amount} | ↕️ {tilt_amount}</p>
+			<button type="button" class="btn variant-filled" on:click={() => locateMe(map)}>
+				<span>📡</span>
+				<span>Where am I?</span>
+			</button>
+	
 		</div>
 		<div class="flex flex-row mt-2">
 			<div class="w-1/2 overflow-auto h-60">
