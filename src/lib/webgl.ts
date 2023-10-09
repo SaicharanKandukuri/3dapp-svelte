@@ -1,8 +1,10 @@
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import testModel from '$lib/assets/testBuilding.glb?url';
+import { MODELS } from '$lib/assets';
 import { ThreeJSOverlayView } from '@googlemaps/three';
 import * as THREE from 'three';
 import { mapConfig } from '../utils';
+
+let webGLOverlayView_E: google.maps.WebGLOverlayView;
 
 function initWebGLOverlay(map: google.maps.Map) {
 	let scene: THREE.Scene,
@@ -24,11 +26,33 @@ function initWebGLOverlay(map: google.maps.Map) {
 
 		loader = new GLTFLoader();
 		// const source = "https://raw.githubusercontent.com/googlemaps/js-samples/main/assets/pin.gltf";
-		const source = testModel;
+		const source = MODELS["PARUL ADMISSION CELL"].model;
+		console.log(props)
 
 		loader.load(source, (gltf) => {
-			gltf.scene.scale.set(0.24, 0.24, 0.24);
-			gltf.scene.rotation.x = Math.PI;
+			let SROT = scene.rotation
+			let GROT = gltf.scene.rotation
+			// 22.288767104666025, 73.36381817128154
+			let latlong = {
+				lat: 22.2886582,
+				lng: 73.363734,
+				altitude: 10
+			};
+
+			gltf.scene.scale.set(50, 50, 50);
+			scene.position.copy(overlay.latLngAltitudeToVector3(latlong));
+			scene.rotation.x = Math.PI / 2;
+			gltf.scene.position.x = 7;
+			gltf.scene.position.y = 0;
+			gltf.scene.position.z = -10;
+
+			//@ts-ignore
+			window.global_model = gltf.scene;
+
+			// adjust position
+			console.log(SROT)
+			console.log(GROT)
+
 			scene.add(gltf.scene);
 		});
 	};
@@ -64,7 +88,9 @@ function initWebGLOverlay(map: google.maps.Map) {
 		renderer.resetState();
 	};
 
+	webGLOverlayView_E = webGLOverlayView;
+
 	webGLOverlayView.setMap(map);
 }
 
-export { initWebGLOverlay };
+export { initWebGLOverlay, webGLOverlayView_E };

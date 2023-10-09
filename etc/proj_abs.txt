@@ -1,0 +1,20 @@
+This project aims to develop a 3D maps of university to the extent to add 3D models of different popular buildings on top of Google Maps.
+
+Different technologies like svelte ( for preparing web interface ), Google Maps Vector map with WebGL hooks ( for 3D map ), ThreeJS to utilise google maps hooks to place models to 3D MAP and Blender ( for 3D models ) will be used.
+
+
+Title: Developing a 3D Campus Map for Enhanced Visualization
+
+Abstract:
+
+The project focuses on the development of a 3D campus map to provide users with an improved visualization of our university campus. This practical endeavor combines a concise set of technologies to offer a feasible and user-friendly experience for both students and visitors.
+
+our project aims to create a practical 3D map of our university campus. The projects primary aim is to show thats its possible to create a 3D map of our campus using simple technologies. The project will be developed using svelte, google maps, three.js and blender.
+
+Our project utilizes straightforward and accessible technologies. We employ Svelte, a modern web framework, to create a simple and user-friendly web interface that allows users to interact with the 3D map. Svelte's lightweight nature ensures efficient navigation.
+
+To keep the project manageable, we opt for basic 3D mapping techniques. We use Google Maps and minimal WebGL integration to add depth to the map.
+In lieu of complex 3D models, we use simplified representations of key campus buildings. These models are integrated using basic Three.js functionality.
+
+In summary, our project seeks to show solution for enhancing campus visualization. By employing accessible technologies such as Svelte, basic 3D mapping, and simplified 3D models, we aim to create a user-friendly 3D map without overcomplicating the process. While our approach may not offer the complexity of large-scale projects, it addresses the core need of helping users better understand our campus layout.
+

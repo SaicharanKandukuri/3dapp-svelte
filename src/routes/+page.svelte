@@ -84,7 +84,7 @@
 						heading_amount = map.getHeading()!;
 					});
 
-					// initWebGLOverlay(map);
+					initWebGLOverlay(map);
 				} else {
 					console.warn('map_view is not defined | reload could fix');
 				}

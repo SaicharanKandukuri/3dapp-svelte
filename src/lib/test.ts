@@ -53,6 +53,7 @@ function initWebGLOverlayView(map) {
     scene.add(directionalLight);
 
     loader = new GLTFLoader();
+    console.log(loader)
     const source = "original.glb";
     loader.load(
       source,

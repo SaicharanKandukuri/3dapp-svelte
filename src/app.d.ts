@@ -8,6 +8,7 @@ declare global {
 		// interface Platform {}
 		interface Window {
 			initMap: () => void;
+			global_model: any;
 		}
 	}
 	
