@@ -3,6 +3,7 @@ import { MODELS } from '$lib/assets';
 import { ThreeJSOverlayView } from '@googlemaps/three';
 import * as THREE from 'three';
 import { mapConfig } from '../utils';
+import { json } from '@sveltejs/kit';
 
 /**
  * The AppContext interface represents the context of the 3D application.
@@ -51,22 +52,15 @@ function initWebGLOverlay(map: google.maps.Map) {
 		context.overlay = overlay;
 
 		loader = new GLTFLoader();
-		// const source = "https://raw.githubusercontent.com/googlemaps/js-samples/main/assets/pin.gltf";
-		const source = MODELS["PARUL ADMISSION CELL"].model;
-		console.log(MODELS["PARUL ADMISSION CELL"].props)
+		const { model, props } = MODELS['PARUL ADMISSION CELL'];
 
-		loader.load(source, (gltf) => {
+		loader.load(model, (gltf) => {
 			let SROT = scene.rotation
 			let GROT = gltf.scene.rotation
-			// 22.288767104666025, 73.36381817128154
-			let latlong = {
-				lat: 22.2886582,
-				lng: 73.363734,
-				altitude: 10
-			};
+			let latlong = props.LatLongLiteral;
 
 			gltf.scene.scale.set(50, 50, 50);
-			scene.position.copy(overlay.latLngAltitudeToVector3(latlong));
+			scene.position.copy(overlay.latLngAltitudeToVector3(latlong || { lat: 0, lng: 0, altitude: 0 }));
 			scene.rotation.x = Math.PI / 2;
 			gltf.scene.position.x = 7;
 			gltf.scene.position.y = 0;

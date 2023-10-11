@@ -1,5 +1,4 @@
 import data from '$lib/data_f.json';
-import { json } from '@sveltejs/kit';
 
 interface position {
     x: number;
@@ -16,6 +15,7 @@ interface rotation {
 interface LatLongLiteral {
     lat: number;
     lng: number;
+    altitude?: number;
 }
 
 type ModelProps = {
@@ -41,22 +41,19 @@ function gen_ModelProps(
         },
         LatLongLiteral: {
             lat: latlong.lat,
-            lng: latlong.lng
+            lng: latlong.lng,
+            altitude: 10,
         }
     }
 }
 
-// CLASSES | PU Administrative Block
 import ADMIN_BLOCK from '$lib/assets/ab-block.glb?url';
-let ADMIN_BLOCK_PROPS = gen_ModelProps({x: 7, y: 0, z: -10}, {x: 0, y: 0, z: 0}, data['PARUL ADMISSION CELL']);
-
-// HOSTEL  | TAGORE BHAWAN A BLOCK
 import TAGORE_A from '$lib/assets/Tagore Bhavan - A.glb?url';
-let TAGORE_A_PROPS = gen_ModelProps({x: 0, y: 0, z: 0}, {x: 0, y: 0, z: 0}, data['TAGORE BHAWAN - A']);
-
-// HOSTEL  | TAGORE BHAWAN B BLOCK
 import TAGORE_B from '$lib/assets/Tagore Bhavan-B.glb?url';
-let TAGORE_B_PROPS = gen_ModelProps({x: 0, y: 0, z: 0}, {x: 0, y: 0, z: 0}, data['TAGORE BHAWAN - B']);
+
+let ADMIN_BLOCK_PROPS   = gen_ModelProps({x: 7, y: 0, z: -10}, {x: 0, y: 0, z: 0}, data['PARUL ADMISSION CELL']);
+let TAGORE_A_PROPS      = gen_ModelProps({x: 0, y: 0, z: 0}, {x: 0, y: 0, z: 0}, data['TAGORE BHAWAN - A']);
+let TAGORE_B_PROPS      = gen_ModelProps({x: 0, y: 0, z: 0}, {x: 0, y: 0, z: 0}, data['TAGORE BHAWAN - B']);
 
 const MODELS = {
     /// all models in one array
