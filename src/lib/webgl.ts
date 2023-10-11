@@ -1,5 +1,5 @@
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { MODELS } from '$lib/assets';
+import { addModels } from './job_add_models';
 import { ThreeJSOverlayView } from '@googlemaps/three';
 import * as THREE from 'three';
 import { mapConfig } from '../utils';
@@ -33,13 +33,15 @@ function initWebGLOverlay(map: google.maps.Map) {
 	let scene: THREE.Scene,
 		camera: THREE.PerspectiveCamera,
 		renderer: THREE.WebGLRenderer,
-		model,
-		clock,
 		loader: GLTFLoader;
 
 	const webGLOverlayView = new google.maps.WebGLOverlayView();
-	const overlay = new ThreeJSOverlayView();
-	overlay.setAnchor(mapConfig.center);
+	const overlay = new ThreeJSOverlayView({
+		map: map,
+		upAxis: "Z",
+		anchor: mapConfig.center,
+	});
+	// overlay.setAnchor();
 
 	webGLOverlayView.onAdd = () => {
 		scene = new THREE.Scene();
@@ -50,31 +52,11 @@ function initWebGLOverlay(map: google.maps.Map) {
 		context.camera = camera;
 		context.scene = scene;
 		context.overlay = overlay;
+		//@ts-ignore
+		window.scene_hook = scene;
 
 		loader = new GLTFLoader();
-		const { model, props } = MODELS['PARUL ADMISSION CELL'];
-
-		loader.load(model, (gltf) => {
-			let SROT = scene.rotation
-			let GROT = gltf.scene.rotation
-			let latlong = props.LatLongLiteral;
-
-			gltf.scene.scale.set(50, 50, 50);
-			scene.position.copy(overlay.latLngAltitudeToVector3(latlong || { lat: 0, lng: 0, altitude: 0 }));
-			scene.rotation.x = Math.PI / 2;
-			gltf.scene.position.x = 7;
-			gltf.scene.position.y = 0;
-			gltf.scene.position.z = -10;
-
-			//@ts-ignore
-			window.global_model = gltf.scene;
-
-			// adjust position
-			console.log(SROT)
-			console.log(GROT)
-
-			scene.add(gltf.scene);
-		});
+		addModels();
 	};
 
 	webGLOverlayView.onContextRestored = ({ gl }) => {
