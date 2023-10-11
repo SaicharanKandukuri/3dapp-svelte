@@ -25,6 +25,18 @@ async function addModels() {
             gltf.scene.position.copy(overlay.latLngAltitudeToVector3(
                 latlong
             ))
+
+            // // exp with colors
+            // const material = new THREE.MeshBasicMaterial({
+            //      color: 0x130E01,
+            // });
+
+            // gltf.scene.traverse((child) => {
+            //     if (child.isMesh) {
+            //         child.material = material;
+            //     }
+            // })
+
             scene.add(gltf.scene);
         })
 

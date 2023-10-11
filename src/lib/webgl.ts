@@ -46,8 +46,8 @@ function initWebGLOverlay(map: google.maps.Map) {
 	webGLOverlayView.onAdd = () => {
 		scene = new THREE.Scene();
 		camera = new THREE.PerspectiveCamera();
-		const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-		scene.add(ambientLight);
+		const light = new THREE.AmbientLight(0xffffff, 0.5);
+		scene.add(light);
 
 		context.camera = camera;
 		context.scene = scene;
@@ -63,6 +63,7 @@ function initWebGLOverlay(map: google.maps.Map) {
 		renderer = new THREE.WebGLRenderer({
 			canvas: gl.canvas,
 			context: gl,
+			antialias: true,
 			...gl.getContextAttributes()
 		});
 
