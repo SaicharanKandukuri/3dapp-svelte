@@ -9,6 +9,9 @@ declare global {
 		interface Window {
 			initMap: () => void;
 			global_model: any;
+			job_load: () => void;
+			model_hook: any;
+			scene_hook: any;
 		}
 	}
 	
