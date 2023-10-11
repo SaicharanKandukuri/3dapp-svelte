@@ -27,7 +27,7 @@ function initWebGLOverlay(map: google.maps.Map) {
 		loader = new GLTFLoader();
 		// const source = "https://raw.githubusercontent.com/googlemaps/js-samples/main/assets/pin.gltf";
 		const source = MODELS["PARUL ADMISSION CELL"].model;
-		console.log(props)
+		// console.log(props)
 
 		loader.load(source, (gltf) => {
 			let SROT = scene.rotation
