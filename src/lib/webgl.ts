@@ -4,7 +4,29 @@ import { ThreeJSOverlayView } from '@googlemaps/three';
 import * as THREE from 'three';
 import { mapConfig } from '../utils';
 
-let webGLOverlayView_E: google.maps.WebGLOverlayView;
+/**
+ * The AppContext interface represents the context of the 3D application.
+ * It contains the webGL overlay view, camera, scene, renderer, and overlay.
+ */
+interface AppContext {
+	webGLOverlayView?: google.maps.WebGLOverlayView;
+	camera?: THREE.PerspectiveCamera;
+	scene?: THREE.Scene;
+	renderer?: THREE.WebGLRenderer;
+	overlay?: ThreeJSOverlayView;
+}
+
+/**
+ * The context variable represents the current context of the 3D application.
+ * It contains the webGL overlay view, camera, scene, renderer, and overlay.
+ */
+let context: AppContext = {
+	webGLOverlayView: undefined,
+	camera: undefined,
+	scene: undefined,
+	renderer: undefined,
+	overlay: undefined
+}
 
 function initWebGLOverlay(map: google.maps.Map) {
 	let scene: THREE.Scene,
@@ -23,6 +45,10 @@ function initWebGLOverlay(map: google.maps.Map) {
 		camera = new THREE.PerspectiveCamera();
 		const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 		scene.add(ambientLight);
+
+		context.camera = camera;
+		context.scene = scene;
+		context.overlay = overlay;
 
 		loader = new GLTFLoader();
 		// const source = "https://raw.githubusercontent.com/googlemaps/js-samples/main/assets/pin.gltf";
@@ -64,6 +90,7 @@ function initWebGLOverlay(map: google.maps.Map) {
 			...gl.getContextAttributes()
 		});
 
+		context.renderer = renderer;
 		renderer.autoClear = false;
 
 		loader.manager.onLoad = () => {
@@ -88,9 +115,10 @@ function initWebGLOverlay(map: google.maps.Map) {
 		renderer.resetState();
 	};
 
-	webGLOverlayView_E = webGLOverlayView;
-
+	// context.webGLOverlayView = webGLOverlayView;
 	webGLOverlayView.setMap(map);
+
+	console.log(context)
 }
 
-export { initWebGLOverlay, webGLOverlayView_E };
+export { initWebGLOverlay, context };
