@@ -115,11 +115,11 @@
 <div class="flex flex-col h-full w-full items-center">
 	<div class="p-2 m-2 mt-10 rounded-md border-dashed border-4" id="map" bind:this={map_view} />
 	
-	<div class="w-full m-3 p-10">
+	<div class="w-full mt-5">
 		<div class="text-center">
-			<p class="h4">🛰️ LANG: {center.lat} LAT: {center.lng}</p>
-			<p class="h4">📐 {heading_amount} | ↕️ {tilt_amount}</p>
-			<button type="button" class="btn variant-filled" on:click={() => locateMe(map)}>
+			<p class="text-sm">🛰️ LANG: {center.lat} LAT: {center.lng}</p>
+			<p>📐 {heading_amount} | ↕️ {tilt_amount}</p>
+			<button type="button" class="mt-5 btn variant-filled" on:click={() => locateMe(map)}>
 				<span>📡</span>
 				<span>Where am I?</span>
 			</button>
