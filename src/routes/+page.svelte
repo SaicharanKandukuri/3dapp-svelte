@@ -93,6 +93,7 @@
 
 		async function loadMap() {
 			map = new google.maps.Map(map_view, mapConfig);
+			map.setMapTypeId('terrain');
 		}
 	});
 </script>
@@ -123,10 +124,10 @@
 				<span>📡</span>
 				<span>Where am I?</span>
 			</button>
-	
 		</div>
-		<div class="flex flex-row mt-2">
-			<div class="w-1/2 overflow-auto h-60">
+
+		<div class="flex flex-col mt-2 md:flex-col">
+			<!-- <div class="overflow-auto h-60">
 				<dl class="list-dl">
 					{#each data as p}
 						<button class="m-2 rounded chip variant-soft hover:variant-filled" on:click={() => setCenter(map, p.lat, p.lng, p.name)} on:keydown={() => setCenter(map, p.lat, p.lng)}>
@@ -138,8 +139,8 @@
 						</button>
 					{/each}
 				</dl>
-			</div>
-			<div class="w-1/2">
+			</div> -->
+			<div class="justify-center">
 				<RangeSlider
 				name="range-slider"
 				bind:value={heading_amount}
