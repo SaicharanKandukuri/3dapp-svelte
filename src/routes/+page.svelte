@@ -66,7 +66,7 @@
 			console.log(api_loaded);
 			if (api_loaded) {
 				if (map_view != undefined) {
-					map_view.style.height = '60vh';
+					map_view.style.height = '50vh';
 					map_view.style.width = '90%';
 					loadMap().then((value) => {
 						console.log(value);
@@ -126,20 +126,7 @@
 			</button>
 		</div>
 
-		<div class="flex flex-col mt-2 md:flex-col">
-			<!-- <div class="overflow-auto h-60">
-				<dl class="list-dl">
-					{#each data as p}
-						<button class="m-2 rounded chip variant-soft hover:variant-filled" on:click={() => setCenter(map, p.lat, p.lng, p.name)} on:keydown={() => setCenter(map, p.lat, p.lng)}>
-							<span class="badge bg-primary-500">🌀</span>
-							<span class="flex-auto">
-								<dt>{p.name}</dt>
-								<dd>{p.lat}/{p.lng}</dd>
-							</span>
-						</button>
-					{/each}
-				</dl>
-			</div> -->
+		<div class="flex flex-col p-10 mt-2 md:flex-col">
 			<div class="justify-center">
 				<RangeSlider
 				name="range-slider"
@@ -170,6 +157,19 @@
 					<div class="text-xs">{tilt_amount} / {max_tilt}</div>
 				</div>
 			</RangeSlider>
+			</div>
+			<div class="overflow-auto h-60">
+				<dl class="list-dl">
+					{#each data as p}
+						<button class="m-2 rounded chip variant-soft hover:variant-filled" on:click={() => setCenter(map, p.lat, p.lng, p.name)} on:keydown={() => setCenter(map, p.lat, p.lng)}>
+							<span class="badge bg-primary-500">🌀</span>
+							<span class="flex-auto">
+								<dt>{p.name}</dt>
+								<dd>{p.lat}/{p.lng}</dd>
+							</span>
+						</button>
+					{/each}
+				</dl>
 			</div>
 		</div>
 	</div>
