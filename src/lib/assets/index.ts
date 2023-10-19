@@ -36,8 +36,8 @@ function gen_ModelProps(
 
 // TODO: Models
 // [x] ab-block
-// [ ] Atal Bhavan - A
-// [x] Atal Bhavan - B
+// [x] Atal Bhavan - A
+// [ ] Atal Bhavan - B
 // [-] Azad - A
 // [-] Azad - B
 // [x] N_L - Block
