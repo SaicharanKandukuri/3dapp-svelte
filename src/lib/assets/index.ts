@@ -43,7 +43,7 @@ function gen_ModelProps(
 // [x] N_L - Block
 // [x] Old Architure Block
 // [x] Parul Institute of Homoeopathy
-// [ ] Parul Institute of Nursing
+// [x] Parul Institute of Nursing
 // [x] PIMSR Library
 // [ ] Savitri Bhavan
 // [ ] Subhash chandra Bose Bhavan
@@ -66,6 +66,7 @@ import ATAL_B       from '$lib/assets/Atal Bhavan - B.glb?url'
 import SHAKUNTALA   from '$lib/assets/SHAKUNTALA BHAWAN.glb?url'
 import OLD_ARCH_BLK from '$lib/assets/Old Architure Block.glb?url'
 import PI_O_HOMEO   from '$lib/assets/Parul Institute of Homoeopathy.glb?url'
+import PI_O_NURSI   from '$lib/assets/Parul Institute of Nursing.glb?url'
 
 let ADMIN_BLOCK_PROPS   = gen_ModelProps([40, 40, 40], data['PARUL ADMISSION CELL']);
 let TAGORE_A_PROPS      = gen_ModelProps([24, 24, 24], data['TAGORE BHAWAN - A']);
@@ -80,6 +81,7 @@ let ATAL_B_PROPS        = gen_ModelProps([25, 25, 25], data['ATAL - B']);
 let SHAKUNTALA_PROPS    = gen_ModelProps([30, 30, 30], data['SHAKUNTALA BHAWAN']);
 let OLD_ARCH_BLK_PROPS  = gen_ModelProps([30, 30, 30], data['PARUL INSTITUTE OF ARCHITECTURE AND RESEARCH NEAR N-BLOCK']);
 let PI_O_HOMEO_PROPS    = gen_ModelProps([30, 30, 30], data['PARUL INSTITUTE OF HOMOEOPATHY AND RESEARCH']);
+let PI_O_NURSI_PROPS    = gen_ModelProps([15, 15, 15], data['PARUL INSTITUTE OF NURSING']);
 
 const MODELS: Models = {
     "PARUL ADMISSION CELL": {
@@ -133,7 +135,11 @@ const MODELS: Models = {
     "PARUL INSTITUTE OF HOMOEOPATHY AND RESEARCH": {
         model: PI_O_HOMEO,
         props: PI_O_HOMEO_PROPS
-    }
+    },
+    "PARUL INSTITUTE OF NURSING": {
+        model: PI_O_NURSI,
+        props: PI_O_NURSI_PROPS
+    },
 }
 
 export { MODELS, type ModelProps };
