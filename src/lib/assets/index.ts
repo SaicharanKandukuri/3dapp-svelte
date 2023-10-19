@@ -37,7 +37,7 @@ function gen_ModelProps(
 // TODO: Models
 // [x] ab-block
 // [x] Atal Bhavan - A
-// [ ] Atal Bhavan - B
+// [X] Atal Bhavan - B
 // [-] Azad - A
 // [-] Azad - B
 // [x] N_L - Block
@@ -47,6 +47,7 @@ function gen_ModelProps(
 // [x] PIMSR Library
 // [ ] Savitri Bhavan
 // [ ] Subhash chandra Bose Bhavan
+// [x] SHAKUNTALA BHAWAN
 // [x] Tagore Bhavan - A
 // [x] Tagore Bhavan-B
 // [x] Teresa - A
