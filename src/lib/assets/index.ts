@@ -45,13 +45,13 @@ function gen_ModelProps(
 // [x] Parul Institute of Homoeopathy
 // [x] Parul Institute of Nursing
 // [x] PIMSR Library
-// [ ] Savitri Bhavan
-// [ ] Subhash chandra Bose Bhavan
+// [?] Savitri Bhavan
+// [x] Subhash chandra Bose Bhavan
 // [x] SHAKUNTALA BHAWAN
 // [x] Tagore Bhavan - A
 // [x] Tagore Bhavan-B
 // [x] Teresa - A
-// [ ] Tilak Bhavan
+// [?] Tilak Bhavan
 
 import ADMIN_BLOCK  from '$lib/assets/ab-block.glb?url';
 import TAGORE_A     from '$lib/assets/Tagore Bhavan - A.glb?url';
@@ -67,6 +67,10 @@ import SHAKUNTALA   from '$lib/assets/SHAKUNTALA BHAWAN.glb?url'
 import OLD_ARCH_BLK from '$lib/assets/Old Architure Block.glb?url'
 import PI_O_HOMEO   from '$lib/assets/Parul Institute of Homoeopathy.glb?url'
 import PI_O_NURSI   from '$lib/assets/Parul Institute of Nursing.glb?url'
+import SUBASH_BVN   from '$lib/assets/Subhash chandra Bose Bhavan.glb?url'
+// import TILAK_BVN    from '$lib/assets/Tilak Bhavan.glb?url'
+// import SVATRI_BVN   from '$lib/assets/Savitri Bhavan.glb?url'
+
 
 let ADMIN_BLOCK_PROPS   = gen_ModelProps([40, 40, 40], data['PARUL ADMISSION CELL']);
 let TAGORE_A_PROPS      = gen_ModelProps([24, 24, 24], data['TAGORE BHAWAN - A']);
@@ -82,6 +86,9 @@ let SHAKUNTALA_PROPS    = gen_ModelProps([30, 30, 30], data['SHAKUNTALA BHAWAN']
 let OLD_ARCH_BLK_PROPS  = gen_ModelProps([30, 30, 30], data['PARUL INSTITUTE OF ARCHITECTURE AND RESEARCH NEAR N-BLOCK']);
 let PI_O_HOMEO_PROPS    = gen_ModelProps([30, 30, 30], data['PARUL INSTITUTE OF HOMOEOPATHY AND RESEARCH']);
 let PI_O_NURSI_PROPS    = gen_ModelProps([15, 15, 15], data['PARUL INSTITUTE OF NURSING']);
+let SUBASH_BVN_PROPS    = gen_ModelProps([30, 30, 30], data['SUBHASH CHANDRA BOSE BHAVAN']);
+// let TILAK_BVN_PROPS     = gen_ModelProps([30, 30, 30], data.tilak);
+// let SVATRI_BVN_PROPS    = gen_ModelProps([15, 15, 15], data.)
 
 const MODELS: Models = {
     "PARUL ADMISSION CELL": {
@@ -140,6 +147,10 @@ const MODELS: Models = {
         model: PI_O_NURSI,
         props: PI_O_NURSI_PROPS
     },
+    "SUBHASH CHANDRA BOSE BHAVAN": {
+        model: SUBASH_BVN,
+        props: SUBASH_BVN_PROPS
+    }
 }
 
 export { MODELS, type ModelProps };
