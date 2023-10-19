@@ -34,6 +34,24 @@ function gen_ModelProps(
     }
 }
 
+// TODO: Models
+// [x] ab-block
+// [ ] Atal Bhavan - A
+// [x] Atal Bhavan - B
+// [x] Azad - A
+// [x] Azad - B
+// [x] N_L - Block
+// [ ] Old Architure Block
+// [ ] Parul Institute of Homoeopathy
+// [ ] Parul Institute of Nursing
+// [x] PIMSR Library
+// [ ] Savitri Bhavan
+// [ ] Subhash chandra Bose Bhavan
+// [x] Tagore Bhavan - A
+// [x] Tagore Bhavan-B
+// [x] Teresa - A
+// [ ] Tilak Bhavan
+
 import ADMIN_BLOCK  from '$lib/assets/ab-block.glb?url';
 import TAGORE_A     from '$lib/assets/Tagore Bhavan - A.glb?url';
 import TAGORE_B     from '$lib/assets/Tagore Bhavan-B.glb?url';
