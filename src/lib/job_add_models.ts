@@ -12,11 +12,12 @@ async function addModels() {
     let scene = context.scene || new THREE.Scene();
     const allModels = Object.keys(MODELS);
     
+    console.log("⚙️: Loading Models")
     for (let i = 0; i < allModels.length; i++) {
         const cur_model: string = allModels[i];
 
         const { model, props } = MODELS[cur_model];
-        console.log(model, props);
+        console.log(i+1 ,model, props);
         const latlong = props.LatLongLiteral;
 
         loader.load(model, (gltf) => {
@@ -41,6 +42,7 @@ async function addModels() {
         })
 
     }
+    console.log("⚙️: Loaded "+ allModels.length+ " Models")
 }
 
 //@ts-ignore

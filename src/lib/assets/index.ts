@@ -61,6 +61,8 @@ import AZAD_B       from '$lib/assets/Azad - B.glb?url';
 import N_L_BLOCK    from '$lib/assets/N_L - Block.glb?url';
 import TERESSA_A    from '$lib/assets/Teresa - A.glb?url';
 import ATAL_A       from '$lib/assets/Atal Bhavan - A.glb?url'
+import ATAL_B       from '$lib/assets/Atal Bhavan - B.glb?url'
+import SHAKUNTALA   from '$lib/assets/SHAKUNTALA BHAWAN.glb?url'
 
 let ADMIN_BLOCK_PROPS   = gen_ModelProps([40, 40, 40], data['PARUL ADMISSION CELL']);
 let TAGORE_A_PROPS      = gen_ModelProps([24, 24, 24], data['TAGORE BHAWAN - A']);
@@ -71,6 +73,8 @@ let AZAD_B_PROPS        = gen_ModelProps([15, 15, 15], data['AZAD - B']);
 let N_L_BLOCK_PROPS     = gen_ModelProps([15, 15, 15], data['N-BLOCK']);
 let TERESSA_A_PROPS     = gen_ModelProps([15, 15, 15], data['TERESA - A']);
 let ATAL_A_PROPS        = gen_ModelProps([30, 30, 30], data['ATAL - A']);
+let ATAL_B_PROPS        = gen_ModelProps([25, 25, 25], data['ATAL - B']);
+let SHAKUNTALA_PROPS    = gen_ModelProps([30, 30, 30], data['SHAKUNTALA BHAWAN']);
 
 const MODELS: Models = {
     "PARUL ADMISSION CELL": {
@@ -108,6 +112,14 @@ const MODELS: Models = {
     "ATAL - A": {
         model: ATAL_A,
         props: ATAL_A_PROPS
+    },
+    "ATAL - B": {
+        model: ATAL_B,
+        props: ATAL_B_PROPS
+    },
+    "SHAKUNTALA BHAWAN": {
+        model: SHAKUNTALA,
+        props: SHAKUNTALA_PROPS
     }
 }
 
